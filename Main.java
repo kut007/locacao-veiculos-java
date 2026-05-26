@@ -65,6 +65,17 @@ button_salvar.setBounds(30, 340, 80, 30);
 JButton button_limpar = new JButton("Limpar");
 button_limpar.setBounds(120, 340, 80, 30);
 
+button_limpar.addActionListener(e ->{
+    digitar_modelo.setText("");
+    digitar_placa.setText("");
+    digitar_ano.setText("");
+    combo_categoria.setSelectedIndex(-1);
+    grupo_ma.clearSelection();
+    check_ar.setSelected(false);
+    check_gps.setSelected(false);
+    check_seg.setSelected(false);
+});
+
 JButton button_exc = new JButton("Excluir");
 button_exc.setBounds(220, 340, 80, 30);
 
@@ -89,5 +100,8 @@ janela.add(button_exc);
 
 janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 janela.setVisible(true);
+
+
+
 }
 }
