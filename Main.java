@@ -79,6 +79,10 @@ button_limpar.addActionListener(e ->{
 JButton button_exc = new JButton("Excluir");
 button_exc.setBounds(220, 340, 80, 30);
 
+JPanel painel_v = new JPanel();
+painel_v.setLayout(null);
+
+
 painel_v.add(label_modelo);
 painel_v.add(digitar_modelo);
 painel_v.add(label_placa);
@@ -99,9 +103,19 @@ painel_v.add(button_limpar);
 painel_v.add(button_exc);
 
 janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+JTabbedPane abas = new JTabbedPane();
+
+
+JPanel painel_l = new JPanel();
+painel_l.setLayout(null);
+
+
+abas.addTab("veiculos", painel_v);
+abas.addTab("Locações", painel_l);
+abas.setBounds(0, 0, 990, 760);
+
+janela.add(abas);
+
 janela.setVisible(true);
-
-
-
 }
 }
