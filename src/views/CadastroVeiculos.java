@@ -2,11 +2,11 @@ package src.views;
 import javax.swing.*;
 
 public class CadastroVeiculos extends JFrame{
-    public  PaginaCadastro() {
+    public  CadastroVeiculos() {
 
-    janela.setSize(1000, 800);
-    janela.setTitle("Cadastro de veículos");
-    janela.setLayout(null);
+    this.setSize(1000, 800);
+    this.setTitle("Cadastro de veículos");
+    this.setLayout(null); //this é a antiga classe janela que n existe mais pq a propria classe ja é a janela
 
 
     JLabel label_modelo = new JLabel("Modelo");
@@ -106,21 +106,100 @@ public class CadastroVeiculos extends JFrame{
     painel_v.add(button_limpar);
     painel_v.add(button_exc);
 
-    janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JTabbedPane abas = new JTabbedPane();
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    JTabbedPane abas = new JTabbedPane(); //é as abas veiculos e locacoes
 
 
-    JPanel painel_l = new JPanel();
-    painel_l.setLayout(null);
+    JPanel painel_l = new JPanel(); // é o conteudo dentro de cada aba no caso temos a aba veiculos e a aba locações
+    painel_l.setLayout(null); 
 
 
     abas.addTab("veiculos", painel_v);
     abas.addTab("Locações", painel_l);
     abas.setBounds(0, 0, 990, 760);
 
-    janela.add(abas);
+    this.add(abas);
+    JMenuBar barrinha = new JMenuBar(); // as 3 opções no topo do codgigo veiculso locacoes e sair
 
-    janela.setVisible(true);
+    JMenu veiculos = new JMenu("Veiculos");
+    JMenu locacoes = new JMenu("Locações");
+    JMenu sair = new JMenu("Sair");
+    barrinha.add(veiculos);
+    barrinha.add(locacoes);
+    barrinha.add(sair);
+    this.setJMenuBar(barrinha);
+
+    JToggleButton opcoes = new JToggleButton("Mostrar as disponiveis");
+    opcoes.setBounds(30, 400, 220, 30);
+    painel_v.add(opcoes);
+
+    JLabel textinhoencima = new JLabel("Registrar sua locação");
+    textinhoencima.setBounds(20, 8, 200, 30);
+
+    JLabel cliente = new JLabel("Cliente");
+    cliente.setBounds(60, 60, 100, 30);
+
+    JTextField digtar_cliente = new JTextField();
+    digtar_cliente.setBounds(220, 60, 250, 30);
+
+    JLabel data = new JLabel("Data de inicio");
+    data.setBounds(60, 120, 100, 30);
+
+    JTextField data_digitar = new JTextField();
+    data_digitar.setBounds(220,120,100,30);
+
+    JLabel datadev = new JLabel("Data de devolução");
+    datadev.setBounds(60, 180, 180, 30);
+
+    JTextField datadev_digitar = new JTextField();
+    datadev_digitar.setBounds(220, 180, 100, 30);
+    
+    JLabel veic = new JLabel("Veiculos");
+    veic.setBounds(60, 240, 180, 30);
+
+    JComboBox<String> veiculinhos = new JComboBox<>();
+    veiculinhos.setBounds(220, 240, 180, 30);
+
+    JButton confirmar = new JButton("Confirmar locação");
+    confirmar.setBounds(90, 300, 180, 30);
+
+    JButton registrar = new JButton("Registrar devolução");
+    registrar.setBounds(295, 300, 180, 30);
+
+    JButton limpar = new JButton("Limpar");
+    limpar.setBounds(500, 300, 100, 30);
+
+    limpar.addActionListener(e ->{
+      digtar_cliente.setText("");
+      data_digitar.setText("");
+      datadev_digitar.setText("");
+      veiculinhos.setSelectedIndex(-1);
+    });
+
+    button_salvar.addActionListener(e -> {
+      //antonio é a logica
+    });
+
+    button_exc.addActionListener(e -> {
+      JOptionPane.showConfirmDialog(null, "Confirma a exclusão?");
+    });
+    
+
+
+    painel_l.add(cliente);
+    painel_l.add(textinhoencima);
+    painel_l.add(digtar_cliente);
+    painel_l.add(data);
+    painel_l.add(data_digitar);
+    painel_l.add(datadev);
+    painel_l.add(datadev_digitar);
+    painel_l.add(veic);
+    painel_l.add(veiculinhos);
+    painel_l.add(confirmar);
+    painel_l.add(registrar);
+    painel_l.add(limpar);
+
+    this.setVisible(true);
 };
 
 }
