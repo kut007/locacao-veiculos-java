@@ -10,6 +10,8 @@ public class Veiculo {
     private boolean gps;
     private boolean seguro;
     private boolean disponiveis;
+
+    
 }
 
 public Veiculo(String modelo, String placa, String categoria, String ano, String cambio, boolean arCondicionado, boolean gps, boolean seguro) {
@@ -21,7 +23,7 @@ public Veiculo(String modelo, String placa, String categoria, String ano, String
     this.arCondicionado = arCondicionado;
     this.gps = gps;
     this.seguro = seguro;
-    this.disponiveis = disponiveis;
+    this.disponiveis = true;
 }
 
 public String getModelo() {

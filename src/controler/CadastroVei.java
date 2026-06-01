@@ -1,19 +1,34 @@
 package src.controler;
 
 import src.declara.Veiculo;
-import javax.swing.*;
+import src.repositorio.VeiculoRepositorio;
 
-// aqui vai ficar o metodo para validar os campos
-public String Validar(String modelo, String placa, String ano, String categoria, String cambio){
-    if (modelo == null) {
+        // valida os campos
+public class VeiculoController {
 
+    public String validar(String modelo, String placa, String ano, String categoria, String cambio) {
+    if (modelo.trim().isEmpty()) {
+        return "Modelo obrigatório";
+             }
+    if (placa.trim().isEmpty()){
+        return "Placa obrigatória";
+            }
+    if (ano.trim().isEmpty()) {
+        return "Ano obrigatório"; 
+            }
+    if (categoria == null) {
+        return "Selecione uma categoria"; 
+            }
+        if (cambio == null)  {
+         return "Selecione o câmbio";
+            }
+     return null;
     }
-}
-// metodo para excluir
-public boolean Excluir(){
 
-}
-// metodo para salvar
-public boolean Salvar(){
-
-}
+    public boolean salvar(String modelo, String placa, String ano, String categoria, String cambio, boolean ar, boolean gps, boolean seguro) {
+        // criar repositorio
+        } 
+    }
+    public boolean excluir(String placa) {
+        // criar repositorio
+    }
