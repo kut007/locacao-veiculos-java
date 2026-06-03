@@ -183,6 +183,13 @@ public class CadastroVeiculos extends JFrame{
     button_exc.addActionListener(e -> {
       JOptionPane.showConfirmDialog(null, "Confirma a exclusão?");
     });
+
+    String[] colunas = {"Modelo", "Ano", "Placa", "Categoria", "Câmbio", "Status"};
+    
+    DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
+    Jtable tabela = new JTable(modelo);
+    JScrollPane scroll = new JScrollPane(tabela);
+    scroll.setBounds(30, 450, 900, 250);
     
 
 
@@ -198,6 +205,7 @@ public class CadastroVeiculos extends JFrame{
     painel_l.add(confirmar);
     painel_l.add(registrar);
     painel_l.add(limpar);
+    painel_v.add(scroll);
 
     this.setVisible(true);
 };
