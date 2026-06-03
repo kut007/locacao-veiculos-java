@@ -1,5 +1,6 @@
 package src.views;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class CadastroVeiculos extends JFrame{
     public  CadastroVeiculos() {
@@ -86,6 +87,13 @@ public class CadastroVeiculos extends JFrame{
     JPanel painel_v = new JPanel();
     painel_v.setLayout(null);
 
+    String[] colunas = {"Modelo", "Ano", "Placa", "Categoria", "Câmbio", "Status"};
+    
+    DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
+    JTable tabela = new JTable(modelo);
+    JScrollPane scroll = new JScrollPane(tabela);
+    scroll.setBounds(30, 450, 900, 250);
+
 
     painel_v.add(label_modelo);
     painel_v.add(digitar_modelo);
@@ -105,6 +113,8 @@ public class CadastroVeiculos extends JFrame{
     painel_v.add(button_salvar);
     painel_v.add(button_limpar);
     painel_v.add(button_exc);
+    painel_v.add(scroll);
+    
 
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JTabbedPane abas = new JTabbedPane(); //é as abas veiculos e locacoes
@@ -184,12 +194,15 @@ public class CadastroVeiculos extends JFrame{
       JOptionPane.showConfirmDialog(null, "Confirma a exclusão?");
     });
 
-    String[] colunas = {"Modelo", "Ano", "Placa", "Categoria", "Câmbio", "Status"};
     
-    DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
-    Jtable tabela = new JTable(modelo);
-    JScrollPane scroll = new JScrollPane(tabela);
-    scroll.setBounds(30, 450, 900, 250);
+
+    String[] colunasl = {"Cliente", "Veiculo", "Placa", "Data Inicio", "Data Devolução"};
+
+    DefaultTableModel modelol = new DefaultTableModel(colunasl, 0);
+
+    JTable tabelal = new JTable(modelol);
+    JScrollPane scrolll = new JScrollPane(tabelal);
+    scrolll.setBounds(30, 370, 900, 250);
     
 
 
@@ -205,7 +218,8 @@ public class CadastroVeiculos extends JFrame{
     painel_l.add(confirmar);
     painel_l.add(registrar);
     painel_l.add(limpar);
-    painel_v.add(scroll);
+    painel_l.add(scrolll);
+    
 
     this.setVisible(true);
 };
