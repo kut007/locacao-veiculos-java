@@ -1,10 +1,12 @@
 package src.controler;
 
 import src.declara.Veiculo;
+import src.declara.Locacao;
 import src.repositorio.VeiculoRepositorio;
+import src.repositorio.LocacaoRepositorio;
 
         // valida os campos
-public class VeiculoController {
+public class CadastroVei {
 
     public String validar(String modelo, String placa, String ano, String categoria, String cambio) {
     if (modelo.trim().isEmpty()) {
@@ -13,22 +15,38 @@ public class VeiculoController {
     if (placa.trim().isEmpty()){
         return "Placa obrigatória";
             }
-    if (ano.trim().isEmpty()) {
-        return "Ano obrigatório"; 
-            }
+    try {
+             int anoInt = Integer.parseInt(ano.trim());
+            if (anoInt < 1900 || anoInt > 2026) {
+                return "Ano invalido digite um ano valido";
+        }
+    } catch (NumberFormatException e) {
+            return "Ano invalido, digite apenas numeros";
+        }
     if (categoria == null) {
         return "Selecione uma categoria"; 
             }
-        if (cambio == null)  {
-         return "Selecione o câmbio";
+    if (cambio == null)  {
+        return "Selecione o câmbio";
             }
      return null;
     }
 
-    public boolean salvar(String modelo, String placa, String ano, String categoria, String cambio, boolean ar, boolean gps, boolean seguro) {
-        // criar repositorio
-        } 
+    public String validarLocacao(String cliente, String dataInicio, String dataDevolucao, String placaSelecionada) {
+    if (cliente.trim().isEmpty()) {
+        return "Nome do cliente e obrigatorio";
+            }
+    if (dataInicio.trim().isEmpty()) {
+        return "Data de inicio e obrigatorio";
+            }
+    if (dataDevolucao.trim().isEmpty()){
+        return "Data de devolucao e obrigatoria";
+            }
+    if (placaSelecionada == null || placaSelecionada.isEmpty()) {
+        return "selecione um veiculo disponivel";
+            }
+        return null;
     }
-    public boolean excluir(String placa) {
-        // criar repositorio
-    }
+}
+
+

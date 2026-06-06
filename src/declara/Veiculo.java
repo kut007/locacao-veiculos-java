@@ -11,9 +11,6 @@ public class Veiculo {
     private boolean seguro;
     private boolean disponiveis;
 
-    
-}
-
 public Veiculo(String modelo, String placa, String categoria, String ano, String cambio, boolean arCondicionado, boolean gps, boolean seguro) {
     this.modelo = modelo;
     this.placa = placa;
@@ -50,7 +47,8 @@ public boolean getGps() {
 public boolean getSeguro() {
     return seguro;
 }
-public boolean getDisponiveis() {
+public boolean isDisponiveis() {
     return disponiveis;
+}
 }
 
