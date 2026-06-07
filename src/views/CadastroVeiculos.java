@@ -1,6 +1,7 @@
 package src.views;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import src.controler.CadastroVei;
 
 public class CadastroVeiculos extends JFrame{
     public  CadastroVeiculos() {
@@ -129,7 +130,7 @@ public class CadastroVeiculos extends JFrame{
     abas.setBounds(0, 0, 990, 760);
 
     this.add(abas);
-    JMenuBar barrinha = new JMenuBar(); // as 3 opções no topo do codgigo veiculso locacoes e sair
+    JMenuBar barrinha = new JMenuBar(); // as 3 opções no topo do codigo veiculso locacoes e sair
 
     JMenu veiculos = new JMenu("Veiculos");
     JMenu locacoes = new JMenu("Locações");
@@ -187,8 +188,33 @@ public class CadastroVeiculos extends JFrame{
     });
 
     button_salvar.addActionListener(e -> {
-      //logica a ser feita
-    });
+
+    CadastroVei controller = new CadastroVei();
+
+    String cambio = null;
+
+    if (radio_manual.isSelected()) {
+        cambio = "Manual";
+    } else if (radio_aut.isSelected()) {
+        cambio = "Automatico";
+    }
+
+    String erro = controller.validar(
+        digitar_modelo.getText(),
+        digitar_placa.getText(),
+        digitar_ano.getText(),
+        (String) combo_categoria.getSelectedItem(),
+        cambio
+    );
+
+    if (erro != null) {
+        JOptionPane.showMessageDialog(null, erro);
+        return;
+    }
+
+    JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!");
+
+});
 
     button_exc.addActionListener(e -> {
       JOptionPane.showConfirmDialog(null, "Confirma a exclusão?");
