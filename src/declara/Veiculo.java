@@ -1,6 +1,8 @@
 package src.declara;
 
+// aqui e publicado a classe veiculo
 public class Veiculo {
+    //Variaveis privadas da classe veiculo
     private String modelo;
     private String placa;
     private String categoria;
@@ -12,6 +14,7 @@ public class Veiculo {
     private boolean disponiveis;
 
 public Veiculo(String modelo, String placa, String categoria, String ano, String cambio, boolean arCondicionado, boolean gps, boolean seguro) {
+    //aqui e a classe construtora que cria o veiculo
     this.modelo = modelo;
     this.placa = placa;
     this.categoria = categoria;
@@ -22,7 +25,7 @@ public Veiculo(String modelo, String placa, String categoria, String ano, String
     this.seguro = seguro;
     this.disponiveis = true;
 }
-
+//aqui e onde criamos os metodos para utilizar as variaveis em outros lugares
 public String getModelo() {
     return modelo;
 }

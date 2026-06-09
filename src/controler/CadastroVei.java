@@ -15,12 +15,12 @@ public class CadastroVei {
     if (placa.trim().isEmpty()){
         return "Placa obrigatória";
             }
-    try {
+    try { //aqui o try catch e utilizado para verificar o ano
              int anoInt = Integer.parseInt(ano.trim());
             if (anoInt < 1900 || anoInt > 2026) {
                 return "Ano invalido digite um ano valido";
         }
-    } catch (NumberFormatException e) {
+    } catch (NumberFormatException e) { //se e escrito qualquer coisa alem de numeros e jogado para o catch e manda uma mensagem de erro
             return "Ano invalido, digite apenas numeros";
         }
     if (categoria == null) {
@@ -31,7 +31,7 @@ public class CadastroVei {
             }
      return null;
     }
-
+//valida os campos do locacao
     public String validarLocacao(String cliente, String dataInicio, String dataDevolucao, String placaSelecionada) {
     if (cliente.trim().isEmpty()) {
         return "Nome do cliente e obrigatorio";
