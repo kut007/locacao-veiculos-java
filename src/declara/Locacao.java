@@ -6,6 +6,7 @@ public class Locacao {
     private String dataInicio;
     private String dataDevolucao;
     private boolean ativa;  
+    private Veiculo veiculo;
 
     public Locacao(String cliente, Veiculo veiculo, String dataInicio, String dataDevolucao) {
         this.cliente = cliente;

@@ -50,5 +50,9 @@ public boolean getSeguro() {
 public boolean isDisponiveis() {
     return disponiveis;
 }
+
+public void setDisponivel(boolean disponivel) {
+    this.disponiveis = disponivel;
+}
 }
 
