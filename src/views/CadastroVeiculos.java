@@ -188,10 +188,11 @@ public class CadastroVeiculos extends JFrame{
     });
 
     button_salvar.addActionListener(e -> {
-
+        
+        // Cria uma instância da classe responsável pelas validações
     CadastroVei controller = new CadastroVei();
 
-    String cambio = null;
+    String cambio = null;            // Verifica qual opção de câmbio foi selecionada
 
     if (radio_manual.isSelected()) {
         cambio = "Manual";
@@ -199,7 +200,7 @@ public class CadastroVeiculos extends JFrame{
         cambio = "Automatico";
     }
 
-    String erro = controller.validar(
+    String erro = controller.validar(        // Chama o método de validação do Controller
         digitar_modelo.getText(),
         digitar_placa.getText(),
         digitar_ano.getText(),
@@ -207,10 +208,11 @@ public class CadastroVeiculos extends JFrame{
         cambio
     );
 
-    if (erro != null) {
+    if (erro != null) {    // Se houver erro, exibe a mensagem e interrompe o cadastro
         JOptionPane.showMessageDialog(null, erro);
         return;
     }
+            // Mensagem exibida quando todos os campos são válidos
 
     JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!");
 
