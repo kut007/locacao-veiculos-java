@@ -174,6 +174,27 @@ public class CadastroVeiculos extends JFrame{
     JButton confirmar = new JButton("Confirmar locação");
     confirmar.setBounds(90, 300, 180, 30);
 
+    confirmar.addActionListener(e -> {
+
+    CadastroVei cadastroVei = new CadastroVei();
+
+    // Valida os dados preenchidos na locação
+    String erro = cadastroVei.validarLocacao(
+        digtar_cliente.getText(),
+        data_digitar.getText(),
+        datadev_digitar.getText(),
+        (String) veiculinhos.getSelectedItem()
+    );
+
+    // Exibe a mensagem de erro retornada pelo Controller
+    if (erro != null) {
+        JOptionPane.showMessageDialog(null, erro);
+        return;
+    }
+
+    JOptionPane.showMessageDialog(null, "Locação registrada com sucesso!");
+});
+
     JButton registrar = new JButton("Registrar devolução");
     registrar.setBounds(295, 300, 180, 30);
 
